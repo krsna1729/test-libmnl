@@ -1,5 +1,5 @@
 FROM ubuntu:18.10 as build
-RUN apt-get update && apt-get install -y make gcc libmnl-dev iproute2
+RUN apt-get update && apt-get install -y make gcc libmnl-dev
 ADD . /code
 WORKDIR /code
 RUN make
