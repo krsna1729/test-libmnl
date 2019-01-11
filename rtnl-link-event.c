@@ -40,7 +40,7 @@ static int data_attr_cb(const struct nlattr *attr, void *data)
 	return MNL_CB_OK;
 }
 
-static int data_cb(const struct nlmsghdr *nlh, void *data)
+static int data_cb(const struct nlmsghdr *nlh, __attribute__ ((unused)) void *data)
 {
 	struct nlattr *tb[IFLA_MAX + 1] = {};
 	struct ifinfomsg *ifm = mnl_nlmsg_get_payload(nlh);
