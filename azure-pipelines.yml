@@ -12,9 +12,9 @@ steps:
   displayName: 'docker build'
 
 - script: |
-  mkdir -p bin
-  docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
-  tar cfJ "release.tar.xz" "./bin"
+    mkdir -p bin
+    docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
+    tar cfJ "release.tar.xz" "./bin"
   displayName: 'copy binary'
 
 - task: PublishPipelineArtifact@0
