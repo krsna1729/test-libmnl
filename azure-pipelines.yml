@@ -13,4 +13,8 @@ steps:
 
 - script: docker run --rm --entrypoint cat $(imageName) /bin/nltest > nltest
   displayName: 'copy binary'
-  
+
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'nltest'
+    targetPath: 'nltest'
