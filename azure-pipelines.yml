@@ -17,4 +17,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'nltest'
-    targetPath: 'nltest'
+    targetPath: './'
