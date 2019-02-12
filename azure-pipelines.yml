@@ -16,5 +16,4 @@ steps:
 
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'nltest'
-    targetPath: './bin'
+    targetPath: './bin/*test'
