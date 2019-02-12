@@ -14,9 +14,9 @@ steps:
 - script: |
     mkdir -p bin
     docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
-    tar cfJ "release.tar.xz" "./bin"
+    tar cfJ "$BUILD_ARTIFACTSTAGINGDIRECTORY/release.tar.xz" "./bin"
   displayName: 'copy binary'
 
-- task: PublishPipelineArtifact@0
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: './release.tar.xz'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/release.tar.xz'
