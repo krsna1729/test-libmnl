@@ -11,6 +11,10 @@ steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
 
-- script: docker run --rm --entrypoint cat $(imageName) /bin/nltest > nltest
+- script: mkdir -p bin; docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
   displayName: 'copy binary'
-  
+
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'nltest'
+    targetPath: './bin'
