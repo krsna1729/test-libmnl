@@ -20,3 +20,4 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)/release.tar.xz'
+    artifactName: release.tar.xz
