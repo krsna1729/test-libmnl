@@ -17,7 +17,7 @@ steps:
 - task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
   displayName: 'WhiteSource Bolt'
   inputs:
-    cwd: WebGoat
+    cwd: './bin'
 
 - task: PublishPipelineArtifact@0
   inputs:
