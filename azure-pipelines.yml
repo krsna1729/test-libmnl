@@ -14,6 +14,11 @@ steps:
 - script: mkdir -p bin; docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
   displayName: 'copy binary'
 
+- task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
+  displayName: 'WhiteSource Bolt'
+  inputs:
+    cwd: WebGoat
+
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'nltest'
