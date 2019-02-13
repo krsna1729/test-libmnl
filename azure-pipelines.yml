@@ -11,7 +11,11 @@ steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
 
-- script: mkdir -p bin; docker run --rm --entrypoint cat $(imageName) /bin/nltest > bin/nltest
+- script: |
+    mkdir -p bin
+    docker create --name test $(imageName)
+    docker cp test:/deps bin
+    docker cp test:/bin/nltest bin
   displayName: 'copy binary'
 
 - task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
